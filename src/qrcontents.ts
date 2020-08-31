@@ -16,7 +16,7 @@ export class PhoneNumber {
 
 export class Medication {
     code: number;
-    state: string;
+    resolved: boolean;
     pzn: number;
     name: string;
     desc: string;
@@ -33,7 +33,7 @@ export class MedicationIntervals {
 
 export class Diagnose {
     code: number;
-    state: string;
+    resolved: boolean;
     icd: string;
     name: string;
     desc: string;

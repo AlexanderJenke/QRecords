@@ -52,7 +52,7 @@ export class Decoder {
             med.intervals.lunch = buffer.readUnsignedNum(4);
             med.intervals.evening = buffer.readUnsignedNum(4);
             med.intervals.night = buffer.readUnsignedNum(4);
-            med.state = "RESOLVING";
+            med.resolved = false;
             this.result.medications = this.result.medications.concat(med);
         }
 
@@ -61,7 +61,7 @@ export class Decoder {
         for(let i = 0; i<count; i++){
             let dia = new Diagnose();
             dia.code = buffer.readUnsignedNum(14);
-            dia.state = "RESOLVING";
+            dia.resolved = false;
             this.result.diagnoses = this.result.diagnoses.concat(dia);
         }
 
