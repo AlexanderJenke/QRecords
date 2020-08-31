@@ -117,7 +117,7 @@ function updatePage(parserObject) {
             icd.appendChild(document.createTextNode(parser_diagnoses[i].icd.toString()));
             span.appendChild(icd);
             var link = document.createTextNode(parser_diagnoses[i].name);
-            if (parser_medications[i].ref !== "") {
+            if (parser_diagnoses[i].ref !== "") {
                 link = createLink(parser_diagnoses[i].ref, link);
             }
             link.className = "col";
