@@ -20,9 +20,9 @@ module.exports = {
     extensions: [ '.tsx', '.ts', '.js' ],
   },
   output: {
-    filename: 'qresponse-[name]-bundle.js',
+    filename: 'qrecords-[name]-bundle.js',
     path: path.resolve(__dirname, 'dist'),
     libraryTarget: 'var',
-    library: 'QResponse'
+    library: 'QRecords'
   },
 };

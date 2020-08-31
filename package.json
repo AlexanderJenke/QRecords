@@ -1,7 +1,7 @@
 {
-  "name": "qresponse",
+  "name": "qrecords",
   "version": "1.0.0",
-  "description": "Client JavaScript for QResponse",
+  "description": "Client JavaScript for QRecords",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,10 +11,11 @@
   "license": "ISC",
   "devDependencies": {
     "ts-loader": "^8.0.3",
-    "webpack": "^4.20.2",
-    "webpack-cli": "^3.1.2"
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
   },
   "dependencies": {
+    "npm": "^6.14.8",
     "typescript": "^4.0.2"
   }
 }
