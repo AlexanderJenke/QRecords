@@ -71,3 +71,5 @@ export class Decoder {
         return this.result;
     }
 }
+
+export {Diagnose, Medication, MedicationIntervals, PhoneNumber, QRContents}

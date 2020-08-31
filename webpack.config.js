@@ -5,7 +5,7 @@ module.exports = {
   entry: {
     decode: './src/decoder.ts',
     encode: './src/encoder.ts',
-    all: ['./src/decoder.ts', './src/encoder.ts']
+    all: ['./src/all.ts']
   },
   module: {
     rules: [
@@ -22,5 +22,7 @@ module.exports = {
   output: {
     filename: 'qresponse-[name]-bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    libraryTarget: 'var',
+    library: 'QResponse'
   },
 };

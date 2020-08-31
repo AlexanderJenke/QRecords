@@ -1,4 +1,4 @@
-import {Diagnose, Medication, PhoneNumber, QRContents} from "./qrcontents";
+import {Diagnose, Medication, MedicationIntervals, PhoneNumber, QRContents} from "./qrcontents";
 import {ByteBuffer} from "./buffer";
 import {NAME_CHARSET, PHONE_CHARSET, VARTEXT_CHARSET} from "./charsets";
 import {fromByteArray} from "./base64";
@@ -58,3 +58,5 @@ export class Encoder {
         return this.anchor;
     }
 }
+
+export {Diagnose, Medication, MedicationIntervals, PhoneNumber, QRContents}
