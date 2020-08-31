@@ -6,104 +6,59 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>QRecords</title>
         <link rel="stylesheet" href="qrecords.min.css">
-        <script>
-            function goto(elem){
-                elem.scrollIntoView(true);
-            }
-        </script>
+        <script src="qrecords.js"></script>
     </head>
 
-    <body class="bg-light">
+    <body class="bg-light" onload=buildPage(json)>
         <!-- Header -->
         <div class="navbar fixed-top bg-primary">
             <b class="navbar-brand">QRecords</b>
 
             <!-- Checksum -->
-            <span class="navbar-text">
-                Checksum: 0815
-            </span>
+            <span class="navbar-text", id="checksum"></span>
         </div>
 
         <!-- Content -->
         <div class="container" id="content">
 
+            <!-- Datum -->
+            <p class="scrollToAnchor"></p>
+            <ul class="list-group" id="date">
+                <li class="list-group-item list-group-item-secondary">Austellungsdatum</li>
+            </ul>
+
             <!-- Kontaktdaten -->
             <p class="scrollToAnchor" id="contact"></p>
-            <ul class="list-group">
-                <li class="list-group-item list-group-item-secondary">Notfall Kontakt</li>
-                <li class="list-group-item">Lorem Ipsum</li>
-                <li class="list-group-item"><a href="tel:+491797649720">+49 179 7649720</a></li>
+            <ul class="list-group" id="emergency_contact">
+                <li class="list-group-item list-group-item-secondary">Notfall-Kontakt</li>
             </ul>
             <br>
-            <ul class="list-group">
-                <li class="list-group-item list-group-item-secondary">Hausarzt</li>
-                <li class="list-group-item">Dr. Lorem Ipsum</li>
-                <li class="list-group-item"><a href="tel:+49...">+49...</a></li>
+            <ul class="list-group" id="doctors_contact">
+                <li class="list-group-item list-group-item-secondary">behandelnder Arzt</li>
             </ul>
 
             <!-- Allergien -->
             <p class="scrollToAnchor" id="allergies"></p>
-            <ul class="list-group">
+            <ul class="list-group" id="allergies_list">
                 <li class="list-group-item list-group-item-secondary">Allergien</li>
-                <li class="list-group-item">Arbeit</li>
-                <li class="list-group-item">Langsamer Code</li>
-                <li class="list-group-item">Schlechtes Design</li>
             </ul>
 
             <!-- Medikamente -->
             <p class="scrollToAnchor" id="medications"></p>
-            <ul class="list-group">
+            <ul class="list-group" id="medications_list">
                 <li class="list-group-item list-group-item-secondary">Medikamente</li>
-                <li class="list-group-item">
-                    Idioticum <br/>
-                    0 / 0 / 5 / 7
-                </li>
-                <li class="list-group-item">
-                    Lorem Ipsum Dolor <br/>
-                    0 / 0 / 5 / 7
-                </li>
-                <li class="list-group-item">
-                    UnendlichLangerNameVonGanzWichtigemMedikament <br/>
-                    15 / 15 / 15 / 15
-                </li>
             </ul>
 
             <!-- Diagnosen -->
             <p class="scrollToAnchor" id="diagnoses"></p>
-            <ul class="list-group">
+            <ul class="list-group" id="diagnoses_list">
                 <li class="list-group-item list-group-item-secondary">Diagnosen</li>
-                <li class="list-group-item">
-                    <span class="row align-items-start">
-                        <span class="col-2 mb-0">R32.0</span>
-                        <a class="col" href="https://de.wikipedia.org/wiki/Harninkontinenz">Harninkontinenz</a>
-                    </span>
-                </li>
-                <li class="list-group-item">
-                    <span class="row align-items-start">
-                        <span class="col-2 mb-0">F73</span>
-                        <a class="col" href="https://de.wikipedia.org/wiki/Schwerste_Intelligenzminderung">Schwerste Intelligenzminderung</a>
-                    </span>
-                </li>
-                <li class="list-group-item">
-                    <span class="row align-items-start">
-                        <span class="spinner-border text-secondary mb-0" role="status"></span>
-                    </span>
-                </li>
             </ul>
 
             <!-- Freitext -->
             <p class="scrollToAnchor" id="notes"></p>
-            <span class="list-group">
+            <span class="list-group" id="notes_list">
                 <span class="list-group-item list-group-item-secondary">Notizen</span>
-                <span class="list-group-item">
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                    Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                    Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-                    Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-                    Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.
-                    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.
-                    Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptu
-                </span>
             </span>
         </div>
 
