@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang=de>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<title>QRecords</title>
+<link rel=stylesheet href=qrecords.min.css>
+<script src=qrecords.min.js></script>
+<script>json={checksum:815,generationDate:"ISO - 8601",phoneContact:{name:"Klaus Müller",number:"0800 800 3 800"},phoneMedical:{name:"Dr. Klaus Müller",number:"+49..."},allergies:["Erdnuss","Paracetamol"],medications:[{code:123,state:"LOADING",pzn:8909889,name:"Aspirin",ref:"https://wikipedia.org/Aspirin",intervals:{morning:3,lunch:0,evening:0,night:0}}],diagnoses:[{code:123,state:"RESOLVED",icd:"R32.0",name:"Harninkontinenz",ref:"https://de.wikipedia.org/wiki/Harninkontinenz"}],notes:"Sehr schwieriger Patient, nicht zu empfehlen"}</script>
+</head>
+<body class=bg-light onload=buildPage(json)>
+<div class="navbar fixed-top bg-primary">
+<b class=navbar-brand>QRecords</b>
+<span class=navbar-text id=checksum></span>
+</div>
+<div class=container id=content>
+<p class=scrollToAnchor></p>
+<ul class=list-group id=date>
+<li class="list-group-item list-group-item-secondary">Austellungsdatum</li>
+</ul>
+<p class=scrollToAnchor id=contact></p>
+<ul class=list-group id=emergency_contact>
+<li class="list-group-item list-group-item-secondary">Notfall-Kontakt</li>
+</ul>
+<br>
+<ul class=list-group id=doctors_contact>
+<li class="list-group-item list-group-item-secondary">behandelnder Arzt</li>
+</ul>
+<p class=scrollToAnchor id=allergies></p>
+<ul class=list-group id=allergies_list>
+<li class="list-group-item list-group-item-secondary">Allergien</li>
+</ul>
+<p class=scrollToAnchor id=medications></p>
+<ul class=list-group id=medications_list>
+<li class="list-group-item list-group-item-secondary">Medikamente</li>
+</ul>
+<p class=scrollToAnchor id=diagnoses></p>
+<ul class=list-group id=diagnoses_list>
+<li class="list-group-item list-group-item-secondary">Diagnosen</li>
+</ul>
+<p class=scrollToAnchor id=notes></p>
+<span class=list-group id=notes_list>
+<span class="list-group-item list-group-item-secondary">Notizen</span>
+</span>
+</div>
+<nav class="navbar fixed-bottom navbar-expand-lg bg-primary px-0">
+<div class=container>
+<div class="col px-1 icon" onClick="goto(document.getElementById('contact'));">
+<svg xmlns=http://www.w3.org/2000/svg class=icon viewBox="0 0 8 8">
+<path d="M4 0c-1.1 0-2 1.12-2 2.5s.9 2.5 2 2.5 2-1.12 2-2.5-.9-2.5-2-2.5zm-2.09 5c-1.06.05-1.91.92-1.91 2v1h8v-1c0-1.08-.84-1.95-1.91-2-.54.61-1.28 1-2.09 1-.81 0-1.55-.39-2.09-1z"/>
+</svg>
+</div>
+<div class="col px-1 icon" onClick="goto(document.getElementById('allergies'));">
+<svg xmlns=http://www.w3.org/2000/svg class=icon viewBox="0 0 8 8">
+<path d="M3.09 0c-.06 0-.1.04-.13.09l-2.94 6.81c-.02.05-.03.13-.03.19v.81c0 .05.04.09.09.09h6.81c.05 0 .09-.04.09-.09v-.81c0-.05-.01-.14-.03-.19l-2.94-6.81c-.02-.05-.07-.09-.13-.09h-.81zm-.09 3h1v2h-1v-2zm0 3h1v1h-1v-1z"/>
+</svg>
+</div>
+<div class="col px-1 icon" onClick="goto(document.getElementById('medications'));">
+<svg xmlns=http://www.w3.org/2000/svg class=icon viewBox="0 0 8 8">
+<path d="M.5 0c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zm1.5 0v1h6v-1h-6zm-1.5 2c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zm1.5 0v1h6v-1h-6zm-1.5 2c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zm1.5 0v1h6v-1h-6zm-1.5 2c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zm1.5 0v1h6v-1h-6z"/>
+</svg>
+</div>
+<div class="col px-1 icon" onClick="goto(document.getElementById('diagnoses'));">
+<svg xmlns=http://www.w3.org/2000/svg class=icon viewBox="0 0 8 8">
+<path d="M0 0v2h8v-1h-5v-1h-3zm0 3v4.5c0 .28.22.5.5.5h7c.28 0 .5-.22.5-.5v-4.5h-8z"/>
+</svg>
+</div>
+<div class="col px-1 icon" onClick="goto(document.getElementById('notes'));">
+<svg xmlns=http://www.w3.org/2000/svg class=icon viewBox="0 0 8 8">
+<path d="M.09 0c-.06 0-.09.04-.09.09v5.81c0 .05.04.09.09.09h5.91l2 2v-7.91c0-.06-.04-.09-.09-.09h-7.81z"/>
+</svg>
+</div>
+</div>
+</nav>
+</body>
+</html>
