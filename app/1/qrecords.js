@@ -67,7 +67,7 @@ function updateListContent(node, content) {
 function createLink(href, text) {
     var link = document.createElement('A');
     link.href = href;
-    link.target="_blank";
+    link.target = "_blank";
     link.appendChild(text);
     return link
 }
@@ -91,11 +91,15 @@ function updatePage(parserObject) {
     for (var i = 0; i < parser_medications.length; i++) {
         if (parser_medications[i].state === "RESOLVED") {
             var span = document.createElement('SPAN');
-            span.appendChild(document.createTextNode(parser_medications[i].name));
+            var link = document.createTextNode(parser_medications[i].name);
+            if (parser_medications[i].ref !== "") {
+                link = createLink(parser_medications[i].ref, link);
+            }
+            span.appendChild(link);
             span.appendChild(document.createElement('BR'))
             span.appendChild(document.createTextNode(
                 parser_medications[i].intervals.morning.toString() + " / " +
-                parser_medications[i].intervals.noon.toString() + " / " +
+                parser_medications[i].intervals.lunch.toString() + " / " +
                 parser_medications[i].intervals.evening.toString() + " / " +
                 parser_medications[i].intervals.night.toString()));
             updateListContent(medications[i], span);
@@ -112,7 +116,10 @@ function updatePage(parserObject) {
             icd.className = "col-2 mb-0";
             icd.appendChild(document.createTextNode(parser_diagnoses[i].icd.toString()));
             span.appendChild(icd);
-            var link = createLink(parser_diagnoses[i].ref, document.createTextNode(parser_diagnoses[i].name));
+            var link = document.createTextNode(parser_diagnoses[i].name);
+            if (parser_medications[i].ref !== "") {
+                link = createLink(parser_diagnoses[i].ref, link);
+            }
             link.className = "col";
             span.appendChild(link);
             updateListContent(diagnoses[i], span);
@@ -142,7 +149,7 @@ json = {
                 "pzn": 8909889,
                 "name": "Aspirin",
                 "ref": "https://wikipedia.org/Aspirin",
-                "intervals": {"morning": 3, "noon": 0, "evening": 0, "night": 0}
+                "intervals": {"morning": 3, "lunch": 0, "evening": 0, "night": 0}
             }
         ],
     "diagnoses":
