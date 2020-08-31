@@ -410,8 +410,8 @@ svg:not(:root) {
 
 .spinner-border {
     display: inline-block;
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 21px;
+    height: 21px;
     border-width: .2em;
     vertical-align: text-bottom;
     border: .25em solid currentColor;
