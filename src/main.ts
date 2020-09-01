@@ -7,4 +7,7 @@ function getAnchor() {
 }
 
 // run parsing
-new Resolver(new Decoder(getAnchor()).decode()).resolve()
+var json = new Decoder(getAnchor()).decode()
+// @ts-ignore
+buildPage(json)
+new Resolver(json).resolve()
