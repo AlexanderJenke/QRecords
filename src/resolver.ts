@@ -25,7 +25,7 @@ export class Resolver {
                 }
             }
             // @ts-ignore
-            pageUpdate(this.result)
+            updatePage(this.result)
         }
 
         function add_diagnoses() {
@@ -46,7 +46,7 @@ export class Resolver {
                 }
             }
             // @ts-ignore
-            pageUpdate(this.result)
+            updatePage(this.result)
         }
 
         let medication_files = [];
