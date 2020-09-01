@@ -1,5 +1,12 @@
 import {QRContents} from "./qrcontents";
 
+// @ts-ignore
+Number.prototype.zfill = function(size) {
+    var s = String(this);
+    while (s.length < (size)) {s = "0" + s;}
+    return s;
+}
+
 export class Resolver {
     result: QRContents;
 
@@ -15,7 +22,7 @@ export class Resolver {
                 let medications = this.result.medications;
                 for (let i = 0; i < medications.length; i++) {
                     if (Math.floor(medications[i].code / 100).toString() === fileName) {
-                        let code = medications[i].code.toString();
+                        let code = medications[i].code.zfill(5);
                         if (json.hasOwnProperty(code)) {
                             medications[i].name = json[code].name;
                             medications[i].ref = json[code].ref;
@@ -35,7 +42,7 @@ export class Resolver {
                 let diagnoses = this.result.diagnoses;
                 for (let i = 0; i < diagnoses.length; i++) {
                     if (Math.floor(diagnoses[i].code / 100).toString() === fileName) {
-                        let code = diagnoses[i].code.toString();
+                        let code = diagnoses[i].code.zfill(5);
                         if (json.hasOwnProperty(code)) {
                             diagnoses[i].icd = json[code].icd;
                             diagnoses[i].name = json[code].name;
