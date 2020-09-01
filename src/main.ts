@@ -11,3 +11,5 @@ var json = new Decoder(getAnchor()).decode()
 // @ts-ignore
 buildPage(json)
 new Resolver(json).resolve()
+
+export {json}
