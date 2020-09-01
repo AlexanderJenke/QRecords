@@ -5,7 +5,8 @@ module.exports = {
   entry: {
     decode: './src/decoder.ts',
     encode: './src/encoder.ts',
-    all: ['./src/all.ts']
+    all: './src/all.ts',
+    main: './src/main.ts'
   },
   module: {
     rules: [
