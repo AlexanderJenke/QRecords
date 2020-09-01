@@ -17,6 +17,6 @@ if __name__ == '__main__':
     for i in range(0, len(pzns), 100):
         d = {}
         for j, (pzn, name) in enumerate(pzns[i:i + 100]):
-            d[str(i + j)] = {'pzn': pzn, 'name': name, 'ref': ''}
+            d[str(i + j).zfill(5)] = {'pzn': pzn, 'name': name, 'ref': ''}
         with open(f"app/1/PZN/{int(i / 100)}", 'w') as file:
             print(json.dumps(d), file=file)

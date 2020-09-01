@@ -74,7 +74,7 @@ function updatePage(parserObject) {
     }
     h = parserObject.medications
     for (i = 0; i < h.length; i++) {
-        if (h[i].state === "RESOLVED") {
+        if (h[i].resolved) {
             var k = z('SPAN');
             var l = x(h[i].name);
             if (h[i].ref !== "") {
@@ -93,7 +93,7 @@ function updatePage(parserObject) {
     }
     h = parserObject.diagnoses
     for (i = 0; i < h.length; i++) {
-        if (h[i].state === "RESOLVED") {
+        if (h[i].resolved) {
             var k = z('SPAN');
             k.className = "row align-items-start";
             var l = z('SPAN');

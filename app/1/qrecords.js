@@ -89,7 +89,7 @@ function updatePage(parserObject) {
     // Add medications content
     parser_medications = parserObject.medications
     for (var i = 0; i < parser_medications.length; i++) {
-        if (parser_medications[i].state === "RESOLVED") {
+        if (parser_medications[i].resolved) {
             var span = document.createElement('SPAN');
             var link = document.createTextNode(parser_medications[i].name);
             if (parser_medications[i].ref !== "") {
@@ -109,7 +109,7 @@ function updatePage(parserObject) {
     // Add diagnoses content
     parser_diagnoses = parserObject.diagnoses
     for (var i = 0; i < parser_diagnoses.length; i++) {
-        if (parser_diagnoses[i].state === "RESOLVED") {
+        if (parser_diagnoses[i].resolved) {
             var span = document.createElement('SPAN');
             span.className = "row align-items-start";
             var icd = document.createElement('SPAN');
