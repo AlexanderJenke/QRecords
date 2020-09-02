@@ -1,12 +1,3 @@
-function goto(e) {
-    e.scrollIntoView(true);
-}
-
-function getAnchor() {
-    return (document.URL.split('#').length > 1) ? document.URL.split('#')[1] : null;
-}
-
-
 import {Decoder, QRContents} from "./lib/parser-js/src/decoder";
 import {Resolver} from "./lib/parser-js/src/resolver";
 
@@ -149,14 +140,18 @@ class Page {
     }
 }
 
-let json;
-let page;
+function goto(e) {
+    e.scrollIntoView(true);
+}
+
+function getAnchor() {
+    return (document.URL.split('#').length > 1) ? document.URL.split('#')[1] : null;
+}
 
 function run() {
-    json = new Decoder(getAnchor()).decode();  // parse
-    console.log(json);
-    page = new Page(json);  // build Page
+    let json = new Decoder(getAnchor()).decode();  // parse
+    let page = new Page(json);  // build Page
     new Resolver(json, page.update.bind(page)).resolve();  // resolve and fill page
 }
 
-export {run, json, page}
+export {run, goto}
