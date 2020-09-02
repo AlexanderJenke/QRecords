@@ -162,9 +162,10 @@ class Page {
     }
 }
 
-let json = new Decoder(getAnchor()).decode();  // parse
-let page = new Page(json)  // build Page
-new Resolver(json, page.update).resolve();  // resolve and fill page
+function run() {
+    let json = new Decoder(getAnchor()).decode();  // parse
+    let page = new Page(json)  // build Page
+    new Resolver(json, page.update).resolve();  // resolve and fill page
+}
 
-//TODO remove
-export {json}
+export {run}
