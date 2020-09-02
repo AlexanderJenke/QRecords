@@ -18,7 +18,6 @@ export class Encoder {
     encode(): string {
         let buffer = new ByteBuffer(new Uint8Array(4096));
 
-        buffer.writeUnsignedNum(this.input.checksum, 14);
         buffer.writeUnsignedNum(this.input.generationDate, 16);
 
         buffer.writeUnsignedNum(this.input.phoneContact.name.length, 6);
@@ -55,6 +54,9 @@ export class Encoder {
         buffer.writeString(this.input.notes, VARTEXT_CHARSET);
 
         this.anchor = fromByteArray(buffer.finalize());
+
+        this.input.checksum = buffer.generateChecksum();
+
         return this.anchor;
     }
 }

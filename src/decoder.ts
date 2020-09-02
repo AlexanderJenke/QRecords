@@ -20,7 +20,7 @@ export class Decoder {
         let buffer = new ByteBuffer(binaryData);
         this.result = new QRContents();
 
-        this.result.checksum = buffer.readUnsignedNum(14);
+        this.result.checksum = buffer.generateChecksum();
         this.result.generationDate = buffer.readUnsignedNum(16);
 
         this.result.phoneContact = new PhoneNumber();

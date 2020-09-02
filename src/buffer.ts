@@ -114,13 +114,25 @@ export class ByteBuffer {
         return this.position;
     }
 
-    finalize(): Uint8Array{
-        let len = (this.position >> 3) + ((this.position%8)==0?0:1);
+    finalize(): Uint8Array {
+        let len = (this.position >> 3) + ((this.position % 8) == 0 ? 0 : 1);
         let newdata = new Uint8Array(len);
-        for(let i = 0; i<len; i++){
+        for (let i = 0; i < len; i++) {
             newdata[i] = this.data[i];
         }
         this.data = newdata;
         return newdata;
+    }
+
+    generateChecksum() {
+        let pos = this.position;
+        this.rewind();
+        let len = Math.floor(this.data.length * 8 / 13);
+        let ret = 0;
+        for (let i = 0; i < len; i++) {
+            ret ^= this.readUnsignedNum(13);
+        }
+        this.position = pos;
+        return ret;
     }
 }

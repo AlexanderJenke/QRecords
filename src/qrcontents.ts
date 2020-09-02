@@ -7,6 +7,10 @@ export class QRContents {
     medications: Medication[];
     diagnoses: Diagnose[];
     notes: string;
+
+    getGenerationDateText(): string {
+        return new Date(this.generationDate * 24 * 60 * 60 * 1000).toDateString();
+    }
 }
 
 export class PhoneNumber {
