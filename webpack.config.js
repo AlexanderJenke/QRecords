@@ -6,7 +6,6 @@ module.exports = {
     decode: './src/decoder.ts',
     encode: './src/encoder.ts',
     all: './src/all.ts',
-    main: './src/main.ts'
   },
   module: {
     rules: [
