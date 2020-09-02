@@ -1,0 +1,4 @@
+[submodule "app/lib/parser-js"]
+	path = app/lib/parser-js
+	url = git@github.com:AlexanderJenke/QRecords.git
+	branch = parser-js
