@@ -2,3 +2,14 @@
 	path = app/lib/parser-js
 	url = git@github.com:AlexanderJenke/QRecords.git
 	branch = parser-js
+
+[submodule "app/ICD"]
+	path = app/ICD
+	url = git@github.com:AlexanderJenke/QRecords.git
+	branch = ICD
+
+
+[submodule "app/PZN"]
+	path = app/PZN
+	url = git@github.com:AlexanderJenke/QRecords.git
+	branch = PZN
