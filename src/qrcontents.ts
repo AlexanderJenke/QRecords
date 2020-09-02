@@ -33,6 +33,13 @@ export class MedicationIntervals {
     lunch: number;
     evening: number;
     night: number;
+
+    toString(){
+        return this.morning.toString() + " / " +
+            this.lunch.toString() + " / " +
+            this.evening.toString() + " / " +
+            this.night.toString();
+    }
 }
 
 export class Diagnose {
