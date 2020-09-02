@@ -32,7 +32,7 @@ class Page {
         document.getElementById('checksum').innerText = "PatientenID: " + this.json.checksum.toString();
 
         // Add date
-        this.addListElement('date', document.createTextNode(this.json.generationDate.toString()));
+        this.addListElement('date', document.createTextNode(this.json.getGenerationDateText()));
 
         // Add phoneContact
         this.addListElement('emergency_contact', document.createTextNode(this.json.phoneContact.name));
