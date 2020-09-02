@@ -9,9 +9,11 @@ Number.prototype.zfill = function(size) {
 
 export class Resolver {
     result: QRContents;
+    callback: CallableFunction;
 
-    constructor(result: QRContents) {
+    constructor(result: QRContents, callback: CallableFunction) {
         this.result = result;
+        this.callback = callback;
     }
 
     resolve() {
@@ -31,8 +33,7 @@ export class Resolver {
                     }
                 }
             }
-            // @ts-ignore
-            updatePage(this.result)
+            this.callback();
         }
 
         function add_diagnoses() {
@@ -52,8 +53,7 @@ export class Resolver {
                     }
                 }
             }
-            // @ts-ignore
-            updatePage(this.result)
+            this.callback();
         }
 
         let medication_files = [];
@@ -74,13 +74,13 @@ export class Resolver {
         for (let i = 0; i < medication_files.length; i++) {
             let xhr = new XMLHttpRequest();
             xhr.open('GET', './PZN/' + medication_files[i].toString());
-            xhr.onload = add_medications.bind({'xhr': xhr, 'result': this.result});
+            xhr.onload = add_medications.bind({'xhr': xhr, 'result': this.result, 'callback': this.callback});
             xhr.send();
         }
         for (let i = 0; i < diagnose_files.length; i++) {
             let xhr = new XMLHttpRequest();
             xhr.open('GET', './ICD/' + diagnose_files[i].toString());
-            xhr.onload = add_diagnoses.bind({'xhr': xhr, 'result': this.result});
+            xhr.onload = add_diagnoses.bind({'xhr': xhr, 'result': this.result, 'callback': this.callback});
             xhr.send();
         }
     }
