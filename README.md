@@ -1,2 +1,3 @@
 # QRecords
-QR-Codes containing important medical data improving patient care
+This branch contains dummy PZN data. 
+Every file contanins a json with up to 100 PZN details.
