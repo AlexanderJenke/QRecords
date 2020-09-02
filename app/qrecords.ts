@@ -2,11 +2,6 @@ function goto(e) {
     e.scrollIntoView(true);
 }
 
-let allergies = [];
-let medications = [];
-let diagnoses = [];
-
-
 function getAnchor() {
     return (document.URL.split('#').length > 1) ? document.URL.split('#')[1] : null;
 }
@@ -17,9 +12,15 @@ import {Resolver} from "./lib/parser-js/src/resolver";
 
 class Page {
     json: QRContents;
+    allergies: HTMLElement[];
+    medications: HTMLElement[];
+    diagnoses: HTMLElement[];
 
     constructor(json: QRContents) {
         this.json = json;
+        this.allergies = [];
+        this.medications = [];
+        this.diagnoses = [];
         this.build();
     }
 
@@ -47,24 +48,18 @@ class Page {
         this.addListElement('doctors_contact', link);
 
         // Add allergies structure
-        let parser_allergies;
-        parser_allergies = this.json.allergies;
-        for (i = 0; i < parser_allergies.length; i++) {
-            allergies.push(this.addListElement('allergies_list', this.createSpinner()));
+        for (i = 0; i < this.json.allergies.length; i++) {
+            this.allergies.push(this.addListElement('allergies_list', this.createSpinner()));
         }
 
         // Add medications structure
-        let parser_medications;
-        parser_medications = this.json.medications;
-        for (i = 0; i < parser_medications.length; i++) {
-            medications.push(this.addListElement('medications_list', this.createSpinner()));
+        for (i = 0; i < this.json.medications.length; i++) {
+            this.medications.push(this.addListElement('medications_list', this.createSpinner()));
         }
 
         // Add diagnoses structure
-        let parser_diagnoses;
-        parser_diagnoses = this.json.diagnoses;
-        for (i = 0; i < parser_diagnoses.length; i++) {
-            diagnoses.push(this.addListElement('diagnoses_list', this.createSpinner()));
+        for (i = 0; i < this.json.diagnoses.length; i++) {
+            this.diagnoses.push(this.addListElement('diagnoses_list', this.createSpinner()));
         }
 
         // Add notes
@@ -112,60 +107,56 @@ class Page {
         let icd;
 
         // Add allergies content
-        let parser_allergies;
-        parser_allergies = this.json.allergies
-        for (i = 0; i < parser_allergies.length; i++) {
-            this.updateListContent(allergies[i], document.createTextNode(parser_allergies[i]))
+        for (i = 0; i < this.json.allergies.length; i++) {
+            this.updateListContent(this.allergies[i], document.createTextNode(this.json.allergies[i]))
         }
 
         // Add medications content
-        let parser_medications;
-        parser_medications = this.json.medications
-        for (i = 0; i < parser_medications.length; i++) {
-            if (parser_medications[i].resolved) {
+        let medications = this.json.medications;
+        for (i = 0; i < medications.length; i++) {
+            if (medications[i].resolved) {
                 span = document.createElement('SPAN');
-                link = document.createTextNode(parser_medications[i].name);
-                if (parser_medications[i].ref !== "") {
-                    link = this.createLink(parser_medications[i].ref, link);
+                link = document.createTextNode(medications[i].name);
+                if (medications[i].ref !== "") {
+                    link = this.createLink(medications[i].ref, link);
                 }
                 span.appendChild(link);
                 span.appendChild(document.createElement('BR'))
-                span.appendChild(document.createTextNode(
-                    parser_medications[i].intervals.morning.toString() + " / " +
-                    parser_medications[i].intervals.lunch.toString() + " / " +
-                    parser_medications[i].intervals.evening.toString() + " / " +
-                    parser_medications[i].intervals.night.toString()));
-                this.updateListContent(medications[i], span);
+                span.appendChild(document.createTextNode(medications[i].intervals.toString()));
+                this.updateListContent(this.medications[i], span);
             }
         }
 
         // Add diagnoses content
-        let parser_diagnoses;
-        parser_diagnoses = this.json.diagnoses
-        for (i = 0; i < parser_diagnoses.length; i++) {
-            if (parser_diagnoses[i].resolved) {
+        let diagnoses = this.json.diagnoses;
+        for (i = 0; i < diagnoses.length; i++) {
+            if (diagnoses[i].resolved) {
                 span = document.createElement('SPAN');
                 span.className = "row align-items-start";
                 icd = document.createElement('SPAN');
                 icd.className = "col-2 mb-0";
-                icd.appendChild(document.createTextNode(parser_diagnoses[i].icd.toString()));
+                icd.appendChild(document.createTextNode(diagnoses[i].icd.toString()));
                 span.appendChild(icd);
-                link = document.createTextNode(parser_diagnoses[i].name);
-                if (parser_diagnoses[i].ref !== "") {
-                    link = this.createLink(parser_diagnoses[i].ref, link);
+                link = document.createTextNode(diagnoses[i].name);
+                if (diagnoses[i].ref !== "") {
+                    link = this.createLink(diagnoses[i].ref, link);
                 }
                 link.className = "col";
                 span.appendChild(link);
-                this.updateListContent(diagnoses[i], span);
+                this.updateListContent(this.diagnoses[i], span);
             }
         }
     }
 }
 
+let json;
+let page;
+
 function run() {
-    let json = new Decoder(getAnchor()).decode();  // parse
-    let page = new Page(json)  // build Page
-    new Resolver(json, page.update).resolve();  // resolve and fill page
+    json = new Decoder(getAnchor()).decode();  // parse
+    console.log(json);
+    page = new Page(json);  // build Page
+    new Resolver(json, page.update.bind(page)).resolve();  // resolve and fill page
 }
 
-export {run}
+export {run, json, page}
