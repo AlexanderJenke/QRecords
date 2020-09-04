@@ -90,7 +90,7 @@ class Page {
         let mi = document.createElement("input");
         mi.className = "col-1 form-control";
         mi.type = "number";
-        mi.placeholder = "Mo";
+        mi.placeholder = "Mi";
         mi.max = "15";
         mi.min = "0";
         row.appendChild(mi);
@@ -98,7 +98,7 @@ class Page {
         let ab = document.createElement("input");
         ab.className = "col-1 form-control";
         ab.type = "number";
-        ab.placeholder = "Mo";
+        ab.placeholder = "Ab";
         ab.max = "15";
         ab.min = "0";
         row.appendChild(ab);
@@ -106,7 +106,7 @@ class Page {
         let na = document.createElement("input");
         na.className = "col-1 form-control";
         na.type = "number";
-        na.placeholder = "Mo";
+        na.placeholder = "Na";
         na.max = "15";
         na .min = "0";
         row.appendChild(na);
