@@ -4,111 +4,142 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>QRecords - Generator</title>
+        <title>QRecords</title>
         <link rel="stylesheet" href="bootstrap.min.css">
-        <link rel="stylesheet" href="qrecords.min.css">
+        <link rel="stylesheet" href="qrecords.css">
         <script src="jquery.min.js"></script>
         <script src="bootstrap.min.js"></script>
-        <script src="qrecords.js"></script>
-        <script src="ICD/all.js"></script>
-        <script src="PZN/all.js"></script>
         <script src="https://kit.fontawesome.com/c70aa3aeb4.js" crossorigin="anonymous"></script>
     </head>
 
-    <body class="bg-light">
-        <!-- Popup -->
+    <body class="">
 
-        <div class="modal fade" id="qrcodeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content bg-transparent border-0" >
-                    <div class="modal-body" id="qrcode">
+        <!-- Header -->
+        <header>
+            <nav class="navbar fixed-top bg-primary">
+                <b class="navbar-brand">QRecords</b>
+            </nav>
+        </header>
+
+        <!-- Content -->
+        <main>
+            <div class="container-fluid elevatorpitch" id="elevatorpitch-bg">
+            </div>
+
+            <div class="container elevatorpitch">
+                <div class="row align-items-center" style="height: 100%">
+                    <div class="row align-items-center py-3" style="background-color:rgba(108,117,125,0.8); border-radius: 0.5rem;">
+                        <div class="d-flex justify-content-center col-md-5">
+                            <img src="img/QRecordsLogo.png" style="border-radius: 0.5rem;">
+                        </div>
+                        <div class="col-md-7">
+                            <h2 class="featurette-heading">"Jede Minute sterben fünf Menschen wegen fehlerhafter Behandlung" - WHO</h2>
+                            <p class="lead">Zu einer guten Versorgung gehören individuelle faktenbasierte Maßnahmen. Mit <span style="color: #40bfff;">QRecords</span> können plattformunabhängig, übersichtlich und datensicher Patienteninformationen in einem QR-Code gespeichert werden.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Header -->
-        <div class="navbar fixed-top bg-primary">
-            <b class="navbar-brand">QRecords</b>
-        </div>
 
-        <!-- Content -->
-        <div class="container" id="content">
-
-            <!-- Patient -->
-            <p class="scrollToAnchor"></p>
-            <div class="list-group">
-                <span class="list-group-item list-group-item-secondary">Patient</span>
-                <input type="text" class="list-group-item form-control" placeholder="Name" id="name">
-                <input type="text" class="list-group-item form-control" placeholder="Vorname" id="firstname">
-                <input type="date" class="list-group-item form-control" placeholder="Gebutsdatum" id="birthdate">
-            </div>
-
-            <!-- Kontaktdaten -->
-            <p class="scrollToAnchor"></p>
-            <div class="list-group">
-                <span class="list-group-item list-group-item-secondary">Notfall-Kontakt</span>
-                <input type="text" class="list-group-item form-control" placeholder="Name" id="emergency_name">
-                <input type="tel" class="list-group-item form-control" placeholder="Telefonnummer" id="emergency_number">
-            </div>
-            <br>
-            <div class="list-group">
-                <span class="list-group-item list-group-item-secondary">behandelnder Arzt</span>
-                <input type="text" class="list-group-item form-control" placeholder="Name" id="doctor_name">
-                <input type="tel" class="list-group-item form-control" placeholder="Telefonnummer" id="doctor_number">
-            </div>
-
-            <!-- Allergien -->
-            <p class="scrollToAnchor"></p>
-            <div class="list-group" id="allergies_list">
-                <div class="list-group-item list-group-item-secondary">
-                    <span>Allergien</span>
-                    <button type="button" class="btn btn-outline-success float-right"
-                            onclick="QRecords.page.addAllergie()" id="allergies_btn">
-                        <i class="fas fa-plus"></i>
-                    </button>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h2 class="featurette-heading">Datenschutz <span class="text-muted">Alle Daten offline</span></h2>
+                        <p class="lead">Es handelt sich bei Patientendaten immer um kritische Informationen, welche durch den Gesetzgeber im besonderen Maße geschützt werden müssen. Daher ist notwendig durch geeignete Maßnahmen sicherzustellen, dass diese Sicherheit zu jedem Zeitpunkt gewährt ist.</p>
+                    </div>
+                    <div class="col-md-5">
+                        <i class="d-flex justify-content-center fas fa-unlock-alt" style="font-size: 150px;"></i>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Medikamente -->
-            <p class="scrollToAnchor"></p>
-            <div class="list-group" id="medications_list">
-                <div class="list-group-item list-group-item-secondary">
-                    <span>Medikamente</span>
-                    <button type="button" class="btn btn-outline-success float-right"
-                            onclick="QRecords.page.addMedication()" id="medications_btn">
-                        <i class="fas fa-plus"></i>
-                    </button>
+                <hr class="featurette-divider m-5">
+
+                <div class="row">
+                    <div class="col-md-5">
+                        <i class="d-flex justify-content-center fas fa-mobile-alt" style="font-size: 150px;"></i>
+                    </div>
+                    <div class="col-md-7">
+                        <h2 class="featurette-heading">Technologie <span class="text-muted">Nur das Smartphone </span></h2>
+                        <p class="lead">Um sinnvollen Nutzen mit der entwickelten Lösung zu generieren, muss sie möglichst unkompliziert auf einem Gerät nutzbar sein, das weitestgehend jeder Person zur Verfügung steht.
+                            Im Idealfall ist keine zusätzliche Applikation oder Technik nötig, um an die Informationen zu gelangen.</p>
+                    </div>
+
                 </div>
-            </div>
 
-            <!-- Diagnosen -->
-            <p class="scrollToAnchor"></p>
-            <div class="list-group" id="diagnoses_list">
-                <div class="list-group-item list-group-item-secondary">
-                    <span>Diagnosen</span>
-                    <button type="button" class="btn btn-outline-success float-right"
-                            onclick="QRecords.page.addDiagnose()" id="diagnoses_btn">
-                        <i class="fas fa-plus"></i>
-                    </button>
+                <hr class="featurette-divider m-5">
+
+                <div class="row">
+                    <div class="col-md-7">
+                        <h2 class="featurette-heading">Verständliche Informationen <span class="text-muted">Weblinks </span></h2>
+                        <p class="lead">Im medizinischen Kontext geschieht dies in vielen Fällen dann, wenn Patient und Arzt nicht dieselbe Ebene in ihrer Kommunikation finden und damit wertvolle Informationen nicht an den Adressaten geraten.
+                            Eine Lösung muss es ermöglichen sowohl dem ärztlichen und nichtärztlichen Personal, als auch den Patienten empfängergerechte Informationen zur Verfügung zu stellen.</p>
+                    </div>
+                    <div class="col-md-5">
+                        <i class="d-flex justify-content-center fas fa-comments" style="font-size: 150px;"></i>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Freitext -->
-            <p class="scrollToAnchor"></p>
-            <div class="list-group">
-                <span class="list-group-item list-group-item-secondary">Notizen</span>
-                <textarea class="list-group-item form-control" placeholder="Freitext" id="notes"></textarea>
+                <hr class="featurette-divider m-5" >
+
+                <div class="row">
+                    <div class="d-flex justify-content-center col mb-4">
+                        <h1>Die Idee</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <p>In der medizinischen Praxis, sei es in der Pflege, dem Arzt-Patienten-Kontakt oder der Notfallversorgung, ist es unabdingbar alle relevanten Patientendaten schnell, sicher und vollständig zur Hand zu haben. In diesem Zusammenhang konnten unser Team zwei Problemschwerpunkte ermitteln.</p>
+                    <p>Zunächst einmal die Kommunikation zwischen den verschiedenen Leistungserbringern (Krankenhaus, Pflegedienst, Altenheim, Rettungsdienst, KV-Dienst, Krankentransport, etc.). Hier kommt es im besonderen Maße darauf an, die richtigen Informationen geordnet, vollständig und übersichtlich zur Verfügung zu stellen.</p>
+                    <p>Der zweite Schwerpunkt ist die Arzt-Patienten-Kommunikation. Aufgrund des Zeitmangels bei den Ärzten in Krankenhäusern und Praxen kann es häufig dazu kommen, dass zwar die verpflichtende Aufklärung stattfindet, aber für den Patienten noch immer nicht alle Unklarheiten beseitigt sind. Hier entstehen mögliche Missverständnisse und Wissenslücken, die zu unbewussten Fehlverhalten der Patienten führen kann</p>
+                    <p>Um dieser beiden Problemstellungen zu entgegenzutreten ist es notwendig eine einfache Darstellung der Patienteninformationen zu ermöglichen. Damit Verbunden muss es möglich sein, tiefgreifendere Informationen über die für Patienten häufig unverständlichen Diagnosen zu erlangen.</p>
+                <div>
+
+                <hr class="featurette-divider m-5" >
+
+                <div class="row">
+                    <div class="d-flex justify-content-center col mb-4"> <h1>Das Team</h1></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <img class="bd-placeholder-img rounded-circle" src="img/Alex.jpg" width="140" height="140" style="border-radius: 70px;">
+                        <h2>Alexander Jenke</h2>
+                        <p></p>
+                    </div>
+                    <div class="col-lg-4">
+                        <img class="bd-placeholder-img rounded-circle" src="img/Felix.jpg" width="140" height="140" style="border-radius: 70px;">
+                        <h2>Felix Rauschert</h2>
+                        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+                    </div>
+                    <div class="col-lg-4">
+                        <img class="bd-placeholder-img rounded-circle" src="img/Fritz.jpg" width="140" height="140" style="border-radius: 70px;">
+                        <h2>Fritz Windisch</h2>
+                        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+                    </div>
+
+                </div>
+
             </div>
-        </div>
+        </main>
 
         <!-- Footer -->
-        <nav class="navbar fixed-bottom navbar-expand-lg bg-primary px-0">
-            <div class="container">
-                <div class="col px-1 icon" onClick='QRecords.page.generateAnchor();'>
-                    Generieren
+        <footer>
+            <hr class="featurette-divider mb-0">
+            <div class="row bg-primary">
+                <div class="col-md-6 text-center p-3">
+                    <span>
+                        Impressum: <br>
+                        Alexander Jenke <br>
+                        webmaster@qrecords.de
+
+                    </span>
+
+                </div>
+                <div class="col-md-6 text-center p-3">
+                    <span>
+                        Kontakt: <br>
+                        info@qrecords.de
+                    </span>
                 </div>
             </div>
-        </nav>
+        </footer>
     </body>
 </html>
