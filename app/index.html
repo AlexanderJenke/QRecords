@@ -7,11 +7,24 @@
         <title>QRecords - Generator</title>
         <link rel="stylesheet" href="bootstrap.min.css">
         <link rel="stylesheet" href="qrecords.css">
+        <script src="jquery.min.js"></script>
+        <script src="bootstrap.min.js"></script>
         <script src="qrecords.js"></script>
         <script src="https://kit.fontawesome.com/c70aa3aeb4.js" crossorigin="anonymous"></script>
     </head>
 
     <body class="bg-light">
+        <!-- Popup -->
+
+        <div class="modal fade" id="qrcodeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content bg-transparent border-0" >
+                    <div class="modal-body" id="qrcode">
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Header -->
         <div class="navbar fixed-top bg-primary">
             <b class="navbar-brand">QRecords</b>

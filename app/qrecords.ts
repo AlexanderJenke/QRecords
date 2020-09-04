@@ -1,4 +1,5 @@
 import {Diagnose, Encoder, Medication, MedicationIntervals, PhoneNumber, QRContents} from "./lib/parser-js/src/encoder";
+import QRCode = require('qrcode');
 
 class Page {
     json: QRContents;
@@ -186,15 +187,54 @@ class Page {
         }
 
         let encoder = new Encoder(contents);
-        let raw = encoder.encode();
+        let anchor = encoder.encode();
         console.log("Data JSON: ");
         console.log(contents);
         console.log("Checksum: " + contents.checksum);
-        console.log("Anchor: " + raw);
+        console.log("Anchor: " + anchor);
+
+        QRCode.toDataURL("http://qrecords.de/1#"+anchor, {errorCorrectionLevel: "H"}).then(function (val){
+            let img = document.createElement('IMG');
+            // @ts-ignore
+            img.src = val;
+            img.id="qrcode_img";
+            // @ts-ignore
+            document.getElementById('qrcode').innerHTML = '';
+            document.getElementById('qrcode').appendChild(img);
+
+            let text = document.createElement("DIV");
+            text.id = "qrcode_text";
+
+            let name = document.createElement('B');
+            // @ts-ignore
+            name.appendChild(document.createTextNode(document.getElementById('name').value));
+            text.appendChild(name)
+
+            // @ts-ignore
+            text.appendChild(document.createTextNode(", " + document.getElementById('firstname').value));
+            text.appendChild(document.createElement('BR'))
+            // @ts-ignore
+            text.appendChild(document.createTextNode(document.getElementById('birthdate').value.toString()));
+            text.appendChild(document.createElement('BR'))
+            // @ts-ignore
+            let checksum = document.createElement('span');
+            // @ts-ignore
+            checksum.appendChild(document.createTextNode("CodeID: " + contents.checksum.toString()))
+            checksum.id = 'qrcode_checksum'
+            text.appendChild(checksum);
+
+
+
+            document.getElementById('qrcode').appendChild(text);
+
+            // @ts-ignore
+            $('#qrcodeModal').modal('toggle');
+        })
+
     }
 
 }
 
 let page = new Page();  // build Page
 
-export {page, QRContents}
+export {page, QRContents, QRCode}
