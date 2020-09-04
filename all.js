@@ -1,4 +1,4 @@
-icds = {
+pzns = {
     "00000": {"pzn": "01459835", "name": "Dicodid 10 mg", "ref": ""},
     "00001": {"pzn": "10234271", "name": "Ethylphenidat als Hydrochlorid", "ref": ""},
     "00002": {"pzn": "00096626", "name": "Mogadon 5 mg", "ref": ""},
