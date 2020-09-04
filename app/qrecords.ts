@@ -23,7 +23,8 @@ class Page {
     }
 
     addDiagnose() {
-        let options = [[1, "Test"], [2, "Name"], [3, "Drei"]];
+        // @ts-ignore
+        let keys = Object.keys(icds);
 
         let div = document.createElement("DIV");
         div.className = "list-group-item";
@@ -37,10 +38,11 @@ class Page {
         div.appendChild(select);
 
         let option;
-        for (let i = 0; i < options.length; i++) {
+        for (let i = 0; i < keys.length; i++) {
             option = document.createElement("OPTION");
-            option.appendChild(document.createTextNode(options[i][1].toString()));
-            option.value = options[i][0];
+            // @ts-ignore
+            option.appendChild(document.createTextNode(icds[keys[i]].icd + "  " +icds[keys[i]].name));
+            option.value = keys[i];
             select.appendChild(option);
         }
 
@@ -49,7 +51,8 @@ class Page {
     }
 
     addMedication() {
-        let options = [[1, "Test"], [2, "Name"], [3, "Drei"]];
+        // @ts-ignore
+        let keys = Object.keys(pzns);
 
         let div = document.createElement("DIV");
         div.className = "list-group-item";
@@ -68,10 +71,11 @@ class Page {
         row.appendChild(select);
 
         let option;
-        for (let i = 0; i < options.length; i++) {
+        for (let i = 0; i < keys.length; i++) {
             option = document.createElement("OPTION");
-            option.appendChild(document.createTextNode(options[i][1].toString()));
-            option.value = options[i][0];
+            // @ts-ignore
+            option.appendChild(document.createTextNode(pzns[keys[i]].name));
+            option.value = keys[i];
             select.appendChild(option);
         }
 
@@ -125,17 +129,17 @@ class Page {
         let contents = new QRContents();
         contents.generationDate = Math.floor(new Date().getTime() / (24 * 60 * 60 * 1000))
 
-        contents.phoneContact = new PhoneNumber();
-        // @ts-ignore
-        contents.phoneContact.name = document.getElementById("doctor_name").value;
-        // @ts-ignore
-        contents.phoneContact.number = document.getElementById("doctor_number").value.replace(/[^0-9+]*/g, '');
-
         contents.phoneMedical = new PhoneNumber();
         // @ts-ignore
-        contents.phoneMedical.name = document.getElementById("emergency_name").value;
+        contents.phoneMedical.name = document.getElementById("doctor_name").value;
         // @ts-ignore
-        contents.phoneMedical.number = document.getElementById("emergency_number").value.replace(/[^0-9+]*/g, '');
+        contents.phoneMedical.number = document.getElementById("doctor_number").value.replace(/[^0-9+]*/g, '');
+
+        contents.phoneContact = new PhoneNumber();
+        // @ts-ignore
+        contents.phoneContact.name = document.getElementById("emergency_name").value;
+        // @ts-ignore
+        contents.phoneContact.number = document.getElementById("emergency_number").value.replace(/[^0-9+]*/g, '');
 
         // @ts-ignore
         contents.notes = document.getElementById('notes').value;
