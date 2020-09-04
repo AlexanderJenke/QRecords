@@ -22,6 +22,19 @@ a:hover {
     border-radius: .0rem;
 }
 
+.col-0 {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 4.166666%;
+    flex: 0 0 4.166666%;
+    max-width: 4.166666%;
+}
+
 #notes{
     border-bottom-right-radius: 0.25rem;
     border-bottom-left-radius: 0.25rem;

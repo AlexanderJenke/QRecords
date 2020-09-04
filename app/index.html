@@ -49,7 +49,7 @@
                 <div class="list-group-item list-group-item-secondary">
                     <span>Allergien</span>
                     <button type="button" class="btn btn-outline-success float-right"
-                            onclick="QRecords.page.addInput('allergies_list')" id="allergies_btn">
+                            onclick="QRecords.page.addAllergie()" id="allergies_btn">
                         <i class="fas fa-plus"></i>
                     </button>
                 </div>
@@ -61,7 +61,7 @@
                 <div class="list-group-item list-group-item-secondary">
                     <span>Medikamente</span>
                     <button type="button" class="btn btn-outline-success float-right"
-                            onclick="QRecords.page.addInput('medications_list')" id="medications_btn">
+                            onclick="QRecords.page.addMedication()" id="medications_btn">
                         <i class="fas fa-plus"></i>
                     </button>
                 </div>
@@ -73,7 +73,7 @@
                 <div class="list-group-item list-group-item-secondary">
                     <span>Diagnosen</span>
                     <button type="button" class="btn btn-outline-success float-right"
-                            onclick="QRecords.page.addInput('diagnoses_list')" id="diagnoses_btn">
+                            onclick="QRecords.page.addDiagnose()" id="diagnoses_btn">
                         <i class="fas fa-plus"></i>
                     </button>
                 </div>
@@ -83,15 +83,14 @@
             <p class="scrollToAnchor"></p>
             <div class="list-group">
                 <span class="list-group-item list-group-item-secondary">Notizen</span>
-                <textarea class="list-group-item form-control" placeholder="Freitext" id="notes">
-                </textarea>
+                <textarea class="list-group-item form-control" placeholder="Freitext" id="notes"></textarea>
             </div>
         </div>
 
         <!-- Footer -->
         <nav class="navbar fixed-bottom navbar-expand-lg bg-primary px-0">
             <div class="container">
-                <div class="col px-1 icon" onClick='alert(document.getElementById("name").value.toString() + ", " + document.getElementById("firstname").value.toString());'>
+                <div class="col px-1 icon" onClick='QRecords.page.generateAnchor();'>
                     Generieren
                 </div>
             </div>
