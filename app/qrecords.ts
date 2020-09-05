@@ -21,7 +21,7 @@ class Page {
         let i;
 
         // Add checksum
-        document.getElementById('checksum').innerText = "PatientenID: " + this.json.checksum.toString();
+        document.getElementById('checksum').innerText = "CodeID: " + this.json.checksum.toString();
 
         // Add date
         this.addListElement('date', document.createTextNode(this.json.getGenerationDateText()));
@@ -132,8 +132,10 @@ class Page {
                 if (diagnoses[i].ref !== "") {
                     link = this.createLink(diagnoses[i].ref, link);
                 }
-                link.className = "col";
-                span.appendChild(link);
+                let link_span = document.createElement('SPAN')
+                link_span.className = "col";
+                link_span.appendChild(link);
+                span.appendChild(link_span);
                 this.updateListContent(this.diagnoses[i], span);
             }
         }
