@@ -6,11 +6,18 @@ class Page {
     allergies: HTMLElement[];
     medications: HTMLElement[][];
     diagnoses: HTMLElement[];
+    PznKeys: [];
+    IcdKeys: [];
+
 
     constructor() {
         this.allergies = [];
         this.medications = [];
         this.diagnoses = [];
+        // @ts-ignore
+        this.PznKeys = Object.keys(pzns).sort(function (a,b){return pzns[a].name > pzns[b].name});
+        // @ts-ignore
+        this.IcdKeys = Object.keys(icds).sort(function (a,b){return icds[a].icd > icds[b].icd});
     }
 
     addAllergie() {
@@ -23,9 +30,6 @@ class Page {
     }
 
     addDiagnose() {
-        // @ts-ignore
-        let keys = Object.keys(icds);
-
         let div = document.createElement("DIV");
         div.className = "list-group-item";
         let select = document.createElement("SELECT");
@@ -38,11 +42,11 @@ class Page {
         div.appendChild(select);
 
         let option;
-        for (let i = 0; i < keys.length; i++) {
+        for (let i = 0; i < this.IcdKeys.length; i++) {
             option = document.createElement("OPTION");
             // @ts-ignore
-            option.appendChild(document.createTextNode(icds[keys[i]].icd + "  " +icds[keys[i]].name));
-            option.value = keys[i];
+            option.appendChild(document.createTextNode(icds[this.IcdKeys[i]].icd + "  " +icds[this.IcdKeys[i]].name));
+            option.value = this.IcdKeys[i];
             select.appendChild(option);
         }
 
@@ -51,9 +55,6 @@ class Page {
     }
 
     addMedication() {
-        // @ts-ignore
-        let keys = Object.keys(pzns);
-
         let div = document.createElement("DIV");
         div.className = "list-group-item";
         let row = document.createElement("DIV");
@@ -71,11 +72,11 @@ class Page {
         row.appendChild(select);
 
         let option;
-        for (let i = 0; i < keys.length; i++) {
+        for (let i = 0; i < this.PznKeys.length; i++) {
             option = document.createElement("OPTION");
             // @ts-ignore
-            option.appendChild(document.createTextNode(pzns[keys[i]].name));
-            option.value = keys[i];
+            option.appendChild(document.createTextNode(pzns[this.PznKeys[i]].name));
+            option.value = this.PznKeys[i];
             select.appendChild(option);
         }
 
@@ -226,8 +227,6 @@ class Page {
             checksum.appendChild(document.createTextNode("CodeID: " + contents.checksum.toString()))
             checksum.id = 'qrcode_checksum'
             text.appendChild(checksum);
-
-
 
             document.getElementById('qrcode').appendChild(text);
 
