@@ -1,142 +1,256 @@
 <!doctype html>
 
 <html lang="de">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>QRecords</title>
-        <link rel="stylesheet" href="bootstrap.min.css">
-        <link rel="stylesheet" href="qrecords.css">
-        <script src="jquery.min.js"></script>
-        <script src="bootstrap.min.js"></script>
-        <script src="https://kit.fontawesome.com/c70aa3aeb4.js" crossorigin="anonymous"></script>
-    </head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>QRecords</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="qrecords.css">
+    <script src="jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/c70aa3aeb4.js" crossorigin="anonymous"></script>
+</head>
 
-    <body class="">
+<body class="">
 
-        <!-- Header -->
-        <header>
-            <nav class="navbar fixed-top bg-primary">
-                <b class="navbar-brand">QRecords</b>
-            </nav>
-        </header>
+<!-- Header -->
+<header>
+    <nav class="navbar fixed-top bg-primary">
+        <b class="navbar-brand">QRecords</b>
+    </nav>
+</header>
 
-        <!-- Content -->
-        <main>
-            <div class="container-fluid elevatorpitch" id="elevatorpitch-bg">
-            </div>
-
-            <div class="container elevatorpitch">
-                <div class="row align-items-center" style="height: 100%">
-                    <div class="row align-items-center py-3" style="background-color:rgba(108,117,125,0.8); border-radius: 0.5rem;">
-                        <div class="d-flex justify-content-center col-md-5">
-                            <img src="img/QRecordsLogo.png" style="border-radius: 0.5rem;">
-                        </div>
-                        <div class="col-md-7">
-                            <h2 class="featurette-heading">"Jede Minute sterben fünf Menschen wegen fehlerhafter Behandlung" - WHO</h2>
-                            <p class="lead">Zu einer guten Versorgung gehören individuelle faktenbasierte Maßnahmen. Mit <span style="color: #40bfff;">QRecords</span> können plattformunabhängig, übersichtlich und datensicher Patienteninformationen in einem QR-Code gespeichert werden.</p>
-                        </div>
-                    </div>
+<!-- Content -->
+<main>
+    <div class="container-fluid" id="elevatorpitch-bg">
+    </div>
+    <!-- elevator pitch -->
+    <div class="container elevatorpitch">
+        <div class="row align-items-center" style="height: 100%">
+            <!-- größer md --->
+            <div class="row align-items-center py-3 d-none d-md-flex"
+                 style="background-color:rgba(108,117,125,0.8); border-radius: 0.5rem;">
+                <div class="d-flex justify-content-center col-md-5">
+                    <img src="img/QRecordsLogo.png"
+                         style="border-radius: 0.5rem; height: 100%; width: 100%; max-width:400px;" alt="Logo">
+                </div>
+                <div class="col-md-7">
+                    <h2>"Jede Minute sterben fünf Menschen wegen fehlerhafter Behandlung" - WHO</h2>
+                    <p class="lead">Zu einer guten Versorgung gehören individuelle faktenbasierte Maßnahmen. Mit <span
+                            style="color: #40bfff;">QRecords</span> können plattformunabhängig, übersichtlich und
+                        datensicher Patienteninformationen in einem QR-Code gespeichert werden.</p>
                 </div>
             </div>
 
-
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-7">
-                        <h2 class="featurette-heading">Datenschutz <span class="text-muted">Alle Daten offline</span></h2>
-                        <p class="lead">Es handelt sich bei Patientendaten immer um kritische Informationen, welche durch den Gesetzgeber im besonderen Maße geschützt werden müssen. Daher ist notwendig durch geeignete Maßnahmen sicherzustellen, dass diese Sicherheit zu jedem Zeitpunkt gewährt ist.</p>
-                    </div>
-                    <div class="col-md-5">
-                        <i class="d-flex justify-content-center fas fa-unlock-alt" style="font-size: 150px;"></i>
-                    </div>
+            <!-- kleiner md --->
+            <div class="row row-cols-2 align-items-center py-3 d-flex d-md-none mx-3"
+                 style="background-color:rgba(108,117,125,0.8); border-radius: 0.5rem;">
+                <div class="justify-content-center col-12 d-flex d-sm-none pb-3 ">
+                    <img id="elevatorpitch-img" src="img/QRecordsLogo.png"
+                         style="border-radius: 0.5rem; height: 50%; width: 50%; max-width:400px;" alt="Logo">
                 </div>
-
-                <hr class="featurette-divider m-5">
-
-                <div class="row">
-                    <div class="col-md-5">
-                        <i class="d-flex justify-content-center fas fa-mobile-alt" style="font-size: 150px;"></i>
-                    </div>
-                    <div class="col-md-7">
-                        <h2 class="featurette-heading">Technologie <span class="text-muted">Nur das Smartphone </span></h2>
-                        <p class="lead">Um sinnvollen Nutzen mit der entwickelten Lösung zu generieren, muss sie möglichst unkompliziert auf einem Gerät nutzbar sein, das weitestgehend jeder Person zur Verfügung steht.
-                            Im Idealfall ist keine zusätzliche Applikation oder Technik nötig, um an die Informationen zu gelangen.</p>
-                    </div>
-
+                <div class="justify-content-center d-sm-none col-sm-4 d-none d-sm-flex">
+                    <img src="img/QRecordsLogo.png"
+                         style="border-radius: 0.5rem; height: 100%; width: 100%; max-width:400px;" alt="Logo">
                 </div>
-
-                <hr class="featurette-divider m-5">
-
-                <div class="row">
-                    <div class="col-md-7">
-                        <h2 class="featurette-heading">Verständliche Informationen <span class="text-muted">Weblinks </span></h2>
-                        <p class="lead">Im medizinischen Kontext geschieht dies in vielen Fällen dann, wenn Patient und Arzt nicht dieselbe Ebene in ihrer Kommunikation finden und damit wertvolle Informationen nicht an den Adressaten geraten.
-                            Eine Lösung muss es ermöglichen sowohl dem ärztlichen und nichtärztlichen Personal, als auch den Patienten empfängergerechte Informationen zur Verfügung zu stellen.</p>
-                    </div>
-                    <div class="col-md-5">
-                        <i class="d-flex justify-content-center fas fa-comments" style="font-size: 150px;"></i>
-                    </div>
+                <div class="col-1 d-sm-none"></div>
+                <div class="col-10 col-sm-8">
+                    <b>"Jede Minute sterben fünf Menschen wegen fehlerhafter Behandlung" - WHO</b>
+                    <p class="">Zu einer guten Versorgung gehören individuelle faktenbasierte Maßnahmen. Mit
+                        <span class="text-primary">QRecords</span> können plattformunabhängig, übersichtlich und
+                        datensicher Patienteninformationen in einem QR-Code gespeichert werden.</p>
                 </div>
-
-                <hr class="featurette-divider m-5" >
-
-                <div class="row">
-                    <div class="d-flex justify-content-center col mb-4">
-                        <h1>Die Idee</h1>
-                    </div>
-                </div>
-                <div class="row">
-                    <p>In der medizinischen Praxis, sei es in der Pflege, dem Arzt-Patienten-Kontakt oder der Notfallversorgung, ist es unabdingbar alle relevanten Patientendaten schnell, sicher und vollständig zur Hand zu haben. In diesem Zusammenhang konnten unser Team zwei Problemschwerpunkte ermitteln.</p>
-                    <p>Zunächst einmal die Kommunikation zwischen den verschiedenen Leistungserbringern (Krankenhaus, Pflegedienst, Altenheim, Rettungsdienst, KV-Dienst, Krankentransport, etc.). Hier kommt es im besonderen Maße darauf an, die richtigen Informationen geordnet, vollständig und übersichtlich zur Verfügung zu stellen.</p>
-                    <p>Der zweite Schwerpunkt ist die Arzt-Patienten-Kommunikation. Aufgrund des Zeitmangels bei den Ärzten in Krankenhäusern und Praxen kann es häufig dazu kommen, dass zwar die verpflichtende Aufklärung stattfindet, aber für den Patienten noch immer nicht alle Unklarheiten beseitigt sind. Hier entstehen mögliche Missverständnisse und Wissenslücken, die zu unbewussten Fehlverhalten der Patienten führen kann</p>
-                    <p>Um dieser beiden Problemstellungen zu entgegenzutreten ist es notwendig eine einfache Darstellung der Patienteninformationen zu ermöglichen. Damit Verbunden muss es möglich sein, tiefgreifendere Informationen über die für Patienten häufig unverständlichen Diagnosen zu erlangen.</p>
-                <div>
-
-                <hr class="featurette-divider m-5" >
-
-                <div class="row">
-                    <div class="d-flex justify-content-center col mb-4"> <h1>Das Team</h1></div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="d-flex justify-content-center">
-                            <img class="bd-placeholder-img rounded-circle" src="img/Alex.jpg" width="140" height="140" style="border-radius: 70px;">
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <h2>Alexander Jenke</h2>
-                        </div>
-                        <p></p>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="d-flex justify-content-center">
-                            <img class="bd-placeholder-img rounded-circle" src="img/Felix.jpg" width="140" height="140" style="border-radius: 70px;">
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <h2>Felix Rauschert</h2>
-                        </div>
-                        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="d-flex justify-content-center">
-                            <img class="bd-placeholder-img rounded-circle" src="img/Fritz.jpg" width="140" height="140" style="border-radius: 70px;">
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <h2>Fritz Windisch</h2>
-                        </div>
-                        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-                    </div>
-
-                </div>
-
+                <div class="col-1 d-sm-none"></div>
             </div>
-        </main>
+        </div>
+    </div>
 
-        <!-- Footer -->
-        <footer>
-            <hr class="featurette-divider mb-0">
-            <div class="row bg-primary">
-                <div class="col-md-6 text-center p-3">
+    <!-- main page content -->
+    <div class="container" style="margin-top: 56px">
+
+        <!-- HOW TO -->
+        <div class="row">
+            <div class="col-lg-6 px-3 lead">
+                <div class="d-flex">
+                    <h2>Die eigenen Noftallkarte erstellen </h2>
+                </div>
+                <p> Die eigene Karte kann in 3 einfachen Schritten erstellt werden:</p>
+                <ol>
+                    <li><a href="https://qrecords.de/create" target="_blank">Die Generator Webseite öffnen</a></li>
+                    <li>Alle Daten eintragen und die Notfallkarte generieren</li>
+                    <li>Die Notfallkarte ausdrucken und <br> gut sichtbar im Portemonnaie verstauen</li>
+                </ol>
+            </div>
+
+            <div class="d-flex d-lg-none py-1">&nbsp;</div>
+
+            <div class="col-lg-6 px-3 lead">
+                <div class="d-flex">
+                    <h2> Einen QRecords-Code scannen </h2>
+                </div>
+                <p>Das auslesen der Daten erfolgt in 3 einfachen Schritten:</p>
+                <ol>
+                    <li>Den Code mit der Handykamera oder einer anderen geegneten App scannen</li>
+                    <li>Die im Code enthaltene Webseite öffnen</li>
+                    <li>CodeID prüfen und anschließend <br>
+                        alle Daten schnell und übersichtlich einsehen
+                    </li>
+
+                </ol>
+            </div>
+        </div>
+
+        <hr class="featurette-divider m-5">
+
+        <!-- SPECS -->
+        <div class="row">
+            <div class="d-flex justify-content-center col mb-4"><h1>Die Idee</h1></div>
+        </div>
+
+        <!-- Datenschutz -->
+        <div class="row align-items-center">
+            <div class="col-md-5 order-2">
+                <i class="d-none d-md-flex justify-content-center fas fa-unlock-alt" style="font-size: 150px;"></i>
+            </div>
+            <div class="col-md-7 order-1">
+                <h2>Datenschutz <span class="text-muted">Alle Daten offline</span></h2>
+                <p class="lead"><span class="text-primary">
+                    QRecords</span> speichert alle Patientendaten direkt im QR-Code. So ist der Zugriff auf die hoch
+                    sensiblen Informationen ausschließlich über das Scannen des Codes möglich. Durch diese
+                    Herangehensweise kann gewährleistet werden, dass die Entscheidung über die Datenpreisgabe allein dem
+                    Nutzer obliegt.</p>
+            </div>
+        </div>
+
+        <div class="row p-3"></div>
+
+        <!-- Technologie -->
+        <div class="row align-items-center">
+            <div class="col-md-5 order-1">
+                <i class="d-none d-md-flex justify-content-center fas fa-mobile-alt" style="font-size: 150px;"></i>
+            </div>
+            <div class="col-md-7 order-2">
+                <h2>Technologie <span class="text-muted">Keine zusätzliche Hardware</span></h2>
+                <p class="lead">
+                    Für die Nutzung von <span class="text-primary">QRecords</span> wird lediglich ein Smartphone
+                    benötigt. Diese enthalten in neueren Generationen meist bereits in der Kamera-App einen
+                    QR-Code-Scanner, auf älteren Geräten kann die Funktionalität durch gratis verfügbare Apps
+                    nachgerüstet werden. Damit ist eine Nuzung ohne zusätzliche Hardware möglich.
+                </p>
+            </div>
+        </div>
+
+        <div class="row p-3"></div>
+
+        <!-- Verständliche Informationen -->
+        <div class="row align-items-center">
+            <div class="col-md-5 order-2">
+                <i class="d-none d-md-flex justify-content-center fas fa-comments" style="font-size: 150px;"></i>
+            </div>
+            <div class="col-md-7 order-1">
+                <h2>Kompakt <span class="text-muted">Aber Verständlich</span></h2>
+                <p class="lead">
+                    Mit <span class="text-primary">QRecords</span> können alle relevanten Daten kompakt und
+                    übersichtlich dargestellt werden. Medizinisches Personal erlangt somit einen schellen Überblick über
+                    den Patienten. Aber auch der Patient selbst kann sich bei Bedarf über die vom Arzt gestellen
+                    Diagnosen und verschriebenen Medikamente informieren.
+                </p>
+            </div>
+
+        </div>
+
+        <hr class="featurette-divider m-5">
+
+        <!-- IDEE -->
+        <div class="row">
+            <div class="d-flex justify-content-center col mb-4">
+                <h1>Unsere Ziele</h1>
+            </div>
+        </div>
+        <div class="row lead p-3">
+            <p>
+                In der medizinischen Praxis, sei es in der Pflege, dem Arzt-Patienten-Kontakt oder der
+                Notfallversorgung, ist es unabdingbar alle relevanten Patientendaten schnell, sicher und vollständig zur
+                Hand zu haben. In diesem Zusammenhang fokussiert sich <span class="text-primary">QRecords</span> auf
+                zwei Problemschwerpunkte.
+            </p>
+            <p>
+                Zunächst einmal die Kommunikation zwischen den verschiedenen Leistungserbringern (Krankenhaus,
+                Pflegedienst, Altenheim, Rettungsdienst, KV-Dienst, Krankentransport, etc.). Hier kommt es im besonderen
+                Maße darauf an, die richtigen Informationen geordnet, vollständig und übersichtlich zur Verfügung zu
+                stellen.
+            </p>
+            <p>
+                Der zweite Schwerpunkt ist die Arzt-Patienten-Kommunikation. Aufgrund des Zeitmangels bei den Ärzten in
+                Krankenhäusern und Praxen kann es häufig dazu kommen, dass zwar die verpflichtende Aufklärung
+                stattfindet, aber für den Patienten noch immer nicht alle Unklarheiten beseitigt sind. Hier entstehen
+                mögliche Missverständnisse und Wissenslücken, die zu unbewussten Fehlverhalten der Patienten führen
+                kann. Um dieser beiden Problemstellungen zu entgegenzutreten ist es notwendig eine einfache Darstellung
+                der Patienteninformationen zu ermöglichen. Damit Verbunden muss es möglich sein, tiefgreifendere
+                Informationen über die für Patienten häufig unverständlichen Diagnosen zu erlangen.
+            </p>
+        </div>
+
+        <hr class="featurette-divider m-5">
+
+        <!-- TEAM -->
+        <div class="row">
+            <div class="d-flex justify-content-center col mb-4"><h1>Das Team</h1></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="d-flex justify-content-center">
+                    <img class="bd-placeholder-img rounded-circle" src="img/Alex.jpg" width="140" height="140"
+                         style="border-radius: 70px;">
+                </div>
+                <div class="d-flex justify-content-center">
+                    <h2>Alexander Jenke</h2>
+                </div>
+                <ul class="lead">
+                    <li>Rettungssanitäter</li>
+                    <li>Masterstudium Informatik</li>
+                    <li>Konzept, Frontend & Backend</li>
+                </ul>
+            </div>
+            <div class="col-lg-4">
+                <div class="d-flex justify-content-center">
+                    <img class="bd-placeholder-img rounded-circle" src="img/Felix.jpg" width="140" height="140"
+                         style="border-radius: 70px;">
+                </div>
+                <div class="d-flex justify-content-center">
+                    <h2>Felix Rauschert</h2>
+                </div>
+                <ul class="lead">
+                    <li>Rettungssanitäter</li>
+                    <li>Masterstudium Transport Economics</li>
+                    <li>Konzept, Marketing & Usability</li>
+                </ul>
+            </div>
+            <div class="col-lg-4">
+                <div class="d-flex justify-content-center">
+                    <img class="bd-placeholder-img rounded-circle" src="img/Fritz.jpg" width="140" height="140"
+                         style="border-radius: 70px;">
+                </div>
+                <div class="d-flex justify-content-center">
+                    <h2>Fritz Windisch</h2>
+                </div>
+                <ul class="lead">
+                    <li>Rettungssanitäter</li>
+                    <li>Masterstudium Informatik</li>
+                    <li>Konzept, Sicherheit & Backend</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<!-- Footer -->
+<footer>
+    <hr class="featurette-divider mb-0">
+    <div class="row bg-primary">
+        <div class="col-md-6 text-center p-3">
                     <span>
                         Impressum: <br>
                         Alexander Jenke <br>
@@ -144,14 +258,14 @@
 
                     </span>
 
-                </div>
-                <div class="col-md-6 text-center p-3">
+        </div>
+        <div class="col-md-6 text-center p-3">
                     <span>
                         Kontakt: <br>
                         info@qrecords.de
                     </span>
-                </div>
-            </div>
-        </footer>
-    </body>
+        </div>
+    </div>
+</footer>
+</body>
 </html>

@@ -10,18 +10,35 @@ a:hover {
     background-color: #40bfff !important;
 }
 
+.text-primary{
+    color: #40bfff!important;
+}
+
 .elevatorpitch {
     position: relative;
     top: 56px;
-    height: 100vh;
+    height: calc(100vh - 56px);
     color: white;
 }
 #elevatorpitch-bg{
     position: absolute;
-
+    height: 100vh;
     background-image: url('img/health-2082630.jpg');
     background-size: cover;
     background-position: center;
     filter: blur(8px);
     -webkit-filter: blur(8px);
+}
+
+@media (max-height: 321px) {
+    #elevatorpitch-img {
+        display: none;
+    }
+}
+
+
+@media (max-width: 321px) {
+    #elevatorpitch-img {
+        display: none;
+    }
 }
