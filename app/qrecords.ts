@@ -134,13 +134,13 @@ class Page {
         // @ts-ignore
         contents.phoneMedical.name = document.getElementById("doctor_name").value;
         // @ts-ignore
-        contents.phoneMedical.number = document.getElementById("doctor_number").value.replace(/[^0-9+]*/g, '');
+        contents.phoneMedical.number = document.getElementById("doctor_number").value.replace(/[^0-9+#]*/g, '');
 
         contents.phoneContact = new PhoneNumber();
         // @ts-ignore
         contents.phoneContact.name = document.getElementById("emergency_name").value;
         // @ts-ignore
-        contents.phoneContact.number = document.getElementById("emergency_number").value.replace(/[^0-9+]*/g, '');
+        contents.phoneContact.number = document.getElementById("emergency_number").value.replace(/[^0-9+#]*/g, '');
 
         // @ts-ignore
         contents.notes = document.getElementById('notes').value;
