@@ -249,18 +249,15 @@ let page = new Page();  // build Page
 function print() {
     // @ts-ignore
     var divContents = $('#qrcode').html();
-    var printWindow = window.open('', '', 'height=1, width=1');
+    var printWindow = window.open('', '', 'height=400, width=600');
     printWindow.document.write('<html><head>');
     printWindow.document.write('<title>QRecords Notfallkarte</title>');
+    printWindow.document.write('<script> window.onafterprint = function(event) {window.close();}</script>')
     printWindow.document.write('<link rel="stylesheet" href="qrecords.min.css">');
-    printWindow.document.write('</head><body style="height:210mm; width:297mm;"><div id="qrcode">');
+    printWindow.document.write('</head><body onload="window.print();" style="height:210mm; width:297mm;"><div id="qrcode">');
     printWindow.document.write(divContents);
     printWindow.document.write('</div></body></html>');
     printWindow.document.close();
-    printWindow.print();
-    printWindow.onafterprint = function(event) {
-        printWindow.close();
-    };
 }
 
 export {page, QRContents, QRCode, print}
