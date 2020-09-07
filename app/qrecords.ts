@@ -15,9 +15,15 @@ class Page {
         this.medications = [];
         this.diagnoses = [];
         // @ts-ignore
-        this.PznKeys = Object.keys(pzns).sort(function (a,b){return pzns[a].name > pzns[b].name});
+        this.PznKeys = Object.keys(pzns).sort(function (a, b) {
+            // @ts-ignore
+            return pzns[a].name > pzns[b].name
+        });
         // @ts-ignore
-        this.IcdKeys = Object.keys(icds).sort(function (a,b){return icds[a].icd > icds[b].icd});
+        this.IcdKeys = Object.keys(icds).sort(function (a, b) {
+            // @ts-ignore
+            return icds[a].icd > icds[b].icd
+        });
     }
 
     addAllergie() {
@@ -45,7 +51,7 @@ class Page {
         for (let i = 0; i < this.IcdKeys.length; i++) {
             option = document.createElement("OPTION");
             // @ts-ignore
-            option.appendChild(document.createTextNode(icds[this.IcdKeys[i]].icd + "  " +icds[this.IcdKeys[i]].name));
+            option.appendChild(document.createTextNode(icds[this.IcdKeys[i]].icd + "  " + icds[this.IcdKeys[i]].name));
             option.value = this.IcdKeys[i];
             select.appendChild(option);
         }
@@ -109,7 +115,7 @@ class Page {
         na.type = "number";
         na.placeholder = "Na";
         na.max = "15";
-        na .min = "0";
+        na.min = "0";
         row.appendChild(na);
 
         this.medications.push([select, mo, mi, ab, na]);
@@ -198,11 +204,11 @@ class Page {
         console.log("Checksum: " + contents.checksum);
         console.log("Anchor: " + anchor);
 
-        QRCode.toDataURL("http://qrecords.de/1#"+anchor, {errorCorrectionLevel: "H"}).then(function (val){
+        QRCode.toDataURL("http://qrecords.de/1#" + anchor, {errorCorrectionLevel: "H"}).then(function (val) {
             let img = document.createElement('IMG');
             // @ts-ignore
             img.src = val;
-            img.id="qrcode_img";
+            img.id = "qrcode_img";
             // @ts-ignore
             document.getElementById('qrcode').innerHTML = '';
             document.getElementById('qrcode').appendChild(img);
@@ -240,4 +246,21 @@ class Page {
 
 let page = new Page();  // build Page
 
-export {page, QRContents, QRCode}
+function print() {
+    // @ts-ignore
+    var divContents = $('#qrcode').html();
+    var printWindow = window.open('', '', 'height=1, width=1');
+    printWindow.document.write('<html><head>');
+    printWindow.document.write('<title>QRecords Notfallkarte</title>');
+    printWindow.document.write('<link rel="stylesheet" href="qrecords.min.css">');
+    printWindow.document.write('</head><body style="height:210mm; width:297mm;"><div id="qrcode">');
+    printWindow.document.write(divContents);
+    printWindow.document.write('</div></body></html>');
+    printWindow.document.close();
+    printWindow.print();
+    printWindow.onafterprint = function(event) {
+        printWindow.close();
+    };
+}
+
+export {page, QRContents, QRCode, print}

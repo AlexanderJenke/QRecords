@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>QRecords - Generator</title>
         <link rel="stylesheet" href="bootstrap.min.css">
-        <link rel="stylesheet" href="qrecords.min.css">
+        <link rel="stylesheet" href="qrecords.css">
         <script src="jquery.min.js"></script>
         <script src="bootstrap.min.js"></script>
         <script src="ICD/all.js"></script>
@@ -20,8 +20,12 @@
 
         <div class="modal fade" id="qrcodeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content bg-transparent border-0" >
-                    <div class="modal-body" id="qrcode">
+                <div class="modal-content bg-transparent border-0 px-3 pt-3" style="width: 531px;">
+                    <div class="modal-body" id="qrcode"></div>
+                    <div class="qrcode-footer">
+                        <button type="button" class="btn btn-primary" onclick="QRecords.print();">
+                            Drucken <i class="fas fa-print"></i>
+                        </button>
                     </div>
                 </div>
             </div>
