@@ -2,6 +2,16 @@ a {
     color: #40bfff;
 }
 
+.navbar, .navbar-brand, .nav-link, .navbar-toggler {
+    color: #212529 !important;
+}
+
+.nav-link:hover{
+    border: 1px #0099e6 solid;
+    margin: -1px;
+    border-radius: 5px;
+}
+
 a:hover {
     color: #0099e6;
 }
