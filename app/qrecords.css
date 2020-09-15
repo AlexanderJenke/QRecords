@@ -34,6 +34,10 @@ a:hover {
     border-radius: .0rem;
 }
 
+input.list-group-item.form-control{
+    height: calc(2em + 0.75rem + 2px);
+}
+
 #qrcode_img{
     position: absolute;
     top: 58px;
