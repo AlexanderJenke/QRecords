@@ -102,6 +102,10 @@ svg:not(:root) {
 }
 
 @media (min-width: 992px) {
+    .px-lg-5{
+        padding-right:3rem !important;
+        padding-left:3rem !important;
+    }
     .container {
         max-width: 960px;
     }
